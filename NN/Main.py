@@ -7,7 +7,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from testCases import linear_forward_test_case, linear_activation_forward_test_case, L_model_forward_test_case, \
-    compute_cost_test_case, linear_activation_backward_test_case, linear_backward_test_case
+    compute_cost_test_case, linear_backward_test_case, linear_activation_backward_test_case
 
 plt.rcParams['figure.figsize'] = (5.0, 4.0)
 plt.rcParams['image.interpolation'] = 'nearest'
@@ -76,3 +76,18 @@ dA_prev, dW, db = linear_backward(dZ, cache)
 print("dA_prev = " + str(dA_prev))
 print("dW = " + str(dW))
 print("db = " + str(db))
+
+# linear_activation backward
+from Linear_Activation_Backward import linear_activation_backward
+
+AL, linear_activation_cache = linear_activation_backward_test_case()
+dA_prev, dW, db = linear_activation_backward(AL, linear_activation_cache, "sigmoid")
+print("sigmoid:")
+print("dA_prev =" + str(dA_prev))
+print("dW =" + str(dW))
+print("db =" + str(db))
+dA_prev, dW, db = linear_activation_backward(AL, linear_activation_cache, "relu")
+print("relu:")
+print("dA_prev =" + str(dA_prev))
+print("dW =" + str(dW))
+print("db =" + str(db))

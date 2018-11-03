@@ -29,6 +29,7 @@ def linear_backward(dZ, cache):
     # 可用写法
     # np.squeeze(np.sum(dZ, axis=1, keepdims=True)/ m)/1
     db = np.squeeze(np.sum(dZ, axis=1, keepdims=True)) / m
+
     assert (dA_prev.shape == A_prev.shape)
     assert (dW.shape == W.shape)
     assert (isinstance(db, float))
