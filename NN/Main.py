@@ -7,7 +7,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from testCases import linear_forward_test_case, linear_activation_forward_test_case, L_model_forward_test_case, \
-    compute_cost_test_case
+    compute_cost_test_case, linear_activation_backward_test_case, linear_backward_test_case
 
 plt.rcParams['figure.figsize'] = (5.0, 4.0)
 plt.rcParams['image.interpolation'] = 'nearest'
@@ -67,3 +67,12 @@ from Compute_Cost import comput_cost
 Y, AL = compute_cost_test_case()
 cost = comput_cost(AL, Y)
 print("cost = " + str(cost))
+
+# linear_backforward propagation
+from Linear_Backward import linear_backward
+
+dZ, cache = linear_backward_test_case()
+dA_prev, dW, db = linear_backward(dZ, cache)
+print("dA_prev = " + str(dA_prev))
+print("dW = " + str(dW))
+print("db = " + str(db))
