@@ -48,4 +48,4 @@ def L_model_forward(X, parameters):
 
     assert (AL.shape == (1, X.shape[1]))
 
-    return AL, cache
+    return AL, caches

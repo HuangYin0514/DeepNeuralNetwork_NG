@@ -6,7 +6,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from testCases import linear_forward_test_case, linear_activation_forward_test_case, L_model_forward_test_case
+from testCases import linear_forward_test_case, linear_activation_forward_test_case, L_model_forward_test_case, \
+    compute_cost_test_case
 
 plt.rcParams['figure.figsize'] = (5.0, 4.0)
 plt.rcParams['image.interpolation'] = 'nearest'
@@ -53,3 +54,16 @@ A, linear_activation_cache = linear_activation_forward(A_prev, W, b, "relu")
 print("With relu :A = " + str(A))
 
 # L_model_test
+from L_Model_Forward import L_model_forward
+
+X, parameters = L_model_forward_test_case()
+AL, caches = L_model_forward(X, parameters)
+print("AL = " + str(AL))
+print("Length of caches list = " + str(len(caches)))
+
+# compute cost
+from Compute_Cost import comput_cost
+
+Y, AL = compute_cost_test_case()
+cost = comput_cost(AL, Y)
+print("cost = " + str(cost))
