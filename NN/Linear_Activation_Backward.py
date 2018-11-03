@@ -27,7 +27,7 @@ def linear_activation_backward(dA, cache, activation):
         dZ = relu_backward(dA, activation_cache)
     if activation == "sigmoid":
         dZ = sigmoid_backward(dA, activation_cache)
-    dA_prev, W, b = linear_backward(dA, linear_cacahe)
+    dA_prev, W, b = linear_backward(dZ, linear_cacahe)
 
     assert (dA_prev.shape[1] == dA.shape[1])
 

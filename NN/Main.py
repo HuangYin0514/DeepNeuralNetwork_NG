@@ -7,7 +7,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from testCases import linear_forward_test_case, linear_activation_forward_test_case, L_model_forward_test_case, \
-    compute_cost_test_case, linear_backward_test_case, linear_activation_backward_test_case
+    compute_cost_test_case, linear_backward_test_case, linear_activation_backward_test_case, L_model_backward_test_case
 
 plt.rcParams['figure.figsize'] = (5.0, 4.0)
 plt.rcParams['image.interpolation'] = 'nearest'
@@ -91,3 +91,12 @@ print("relu:")
 print("dA_prev =" + str(dA_prev))
 print("dW =" + str(dW))
 print("db =" + str(db))
+
+# L_model_backward
+from L_Model_Backward import L_model_Backward
+
+AL, Y, caches= L_model_backward_test_case()
+grads = L_model_Backward(AL, Y, caches)
+print("dW1 = " + str(grads["dW1"]))
+print("db1 = " + str(grads["db1"]))
+print("dA1 = " + str(grads["dA1"]))

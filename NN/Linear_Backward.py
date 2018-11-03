@@ -32,6 +32,6 @@ def linear_backward(dZ, cache):
 
     assert (dA_prev.shape == A_prev.shape)
     assert (dW.shape == W.shape)
-    assert (isinstance(db, float))
+    # assert (isinstance(db[0], float))
 
     return dA_prev, dW, db
