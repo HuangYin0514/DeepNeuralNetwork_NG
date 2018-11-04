@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# @Time     : 2018/11/4 14:44
+# @Author   : HuangYin
+# @FileName : Main.py
+# @Software : PyCharm
+
+import numpy as np
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = (5.0, 4.0) # set default size of plots
+plt.rcParams['image.interpolation'] = 'nearest'
+plt.rcParams['image.cmap'] = 'gray'
+
+np.random.seed(1)
+
