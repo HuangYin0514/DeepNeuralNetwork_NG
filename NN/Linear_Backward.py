@@ -22,16 +22,18 @@ def linear_backward(dZ, cache):
     A_prev, W, b = cache
     m = A_prev.shape[1]
 
-    dA_prev = np.dot(W.T, dZ)
     dW = np.dot(dZ, A_prev.T) / m
+    db = np.sum(dZ, axis=1, keepdims=True)/ m
+    dA_prev = np.dot(W.T, dZ)
     # 写法疑问
     # np.squeeze(np.sum(dZ, axis=1, keepdims=True)/ m)
     # 可用写法
     # np.squeeze(np.sum(dZ, axis=1, keepdims=True)/ m)/1
-    db = np.squeeze(np.sum(dZ, axis=1, keepdims=True)) / m
+    # db = np.sum(dZ, axis=1, keepdims=True) / m
 
     assert (dA_prev.shape == A_prev.shape)
     assert (dW.shape == W.shape)
+    assert (db.shape == b.shape)
     # assert (isinstance(db[0], float))
 
     return dA_prev, dW, db

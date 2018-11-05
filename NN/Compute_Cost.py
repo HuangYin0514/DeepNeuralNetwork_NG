@@ -17,9 +17,9 @@ def comput_cost(AL, Y):
         Returns:
         cost -- cross-entropy cost
         """
-    m = AL.shape[1]
+    m = Y.shape[1]
     # cost = -1 * (1 / m) * np.sum(Y * np.log(AL) + (1 - Y) * np.log(1 - Y)) equal below
-    cost = -1 * (1 / m) * np.sum(np.multiply(Y, np.log(AL)) + np.multiply(1 - Y, np.log(1 - AL)))
+    cost = (-1 / m) * np.sum(np.multiply(Y, np.log(AL)) + np.multiply(1 - Y, np.log(1 - AL)))
 
     cost = np.squeeze(cost)
     assert (cost.shape == ())

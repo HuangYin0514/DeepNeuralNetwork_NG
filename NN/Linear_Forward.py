@@ -19,7 +19,8 @@ def linear_forward(A, W, b):
        Z -- the input of the activation function, also called pre-activation parameter
        cache -- a python dictionary containing "A", "W" and "b" ; stored for computing the backward pass efficiently
        """
-    Z = np.dot(W, A) + b
+    # Z = np.dot(W, A) + b
+    Z = W.dot(A) + b
     assert (Z.shape == (W.shape[0], A.shape[1]))
     cache = (A, W, b)
 

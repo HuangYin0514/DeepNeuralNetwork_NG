@@ -26,12 +26,12 @@ def L_model_Backward(AL, Y, caches):
       """
     grads = {}
     L = len(caches)
-
+    Y = Y.reshape(AL.shape)
     # cost dAL
     dAL = -(np.divide(Y, AL) - np.divide(1 - Y, 1 - AL))
 
     # compute sigmoid backward
-    current_cache = caches[-1]
+    current_cache = caches[L-1]
     grads["dA" + str(L)], grads["dW" + str(L)], grads["db" + str(L)] = linear_activation_backward(dAL, current_cache,
                                                                                                   "sigmoid")
     for l in reversed(range(L - 1)):
