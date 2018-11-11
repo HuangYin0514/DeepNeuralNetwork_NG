@@ -4,6 +4,7 @@
 # @FileName : L_Layer_Model.py
 # @Software : PyCharm
 
+# import NewTest as nt
 from Initialize_Parameters_Deep import initialize_parameters_deep
 from L_Model_Forward import L_model_forward
 from L_Model_Backward import L_model_Backward
@@ -13,11 +14,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+
 def L_layer_model(X, Y, layers_dims, learning_rate=0.0075, num_iterations=3000, print_cost=False):
+    # 改
+    np.random.seed(1)
     costs = []
     parameters = initialize_parameters_deep(layers_dims)
-    for i in range(num_iterations):
-        AL, caches = L_model_forward(X, parameters)
+    for i in range(0, num_iterations):
+        AL, caches =L_model_forward(X, parameters)
         cost = comput_cost(AL, Y)
         if print_cost and i % 100 == 0:
             costs.append(cost)
