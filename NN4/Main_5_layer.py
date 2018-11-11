@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 plt.rcParams['figure.figsize'] = (5.0, 4.0)  # set default size of plots
-# plt.rcParams['image.interpolation'] = 'nearest'
+plt.rcParams['image.interpolation'] = 'nearest'
 plt.rcParams['image.cmap'] = 'gray'
 
 
@@ -26,7 +26,7 @@ train_x = train_x_flatten / 255
 test_x = test_x_flatten / 255
 
 # 5 Layer_Model
-from L_Layer_Model_NonFor import L_layer_model_nonFor
+from NN4.L_Layer_Model import L_layer_model
 
-layers_dims = [12288, 7, 1]
-parameters = L_layer_model_nonFor(train_x, train_set_y_orig, layers_dims=layers_dims, num_iterations=2500, print_cost=True)
+layers_dims = [12288, 20, 7, 5, 1]
+parameters = L_layer_model(train_x, train_set_y_orig, layers_dims=layers_dims, num_iterations=2500, print_cost=True)

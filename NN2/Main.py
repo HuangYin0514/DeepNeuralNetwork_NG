@@ -23,7 +23,6 @@ index = 10
 plt.imshow(train_set_x_orig[index])
 print("y  = " + str(train_set_y_orig[0, index]) + " It`s a " + str(
     classes[train_set_y_orig[0, index]].decode("utf-8")) + " picture")
-# plt.show(1)
 
 # look num information of data set
 m_train = train_set_x_orig.shape[0]
@@ -67,7 +66,7 @@ accuracy_test = (1 - np.mean(np.abs(prediction_test - test_set_y_orig))) * 100
 print("Accuracy of test = {}%".format(accuracy_test))
 
 # 5 Layer_Model
-from L_Layer_Model import L_layer_model
+from NN2.L_Layer_Model import L_layer_model
 from L_Layer_Model_NonFor import L_layer_model_nonFor
 
 layers_dims = [12288, 20, 7, 5, 1]
@@ -78,3 +77,8 @@ print("Accuracy of train = {}%".format(accuracy_train))
 prediction_test = predict(test_x, test_set_y_orig, parameters)
 accuracy_test = (1 - np.mean(np.abs(prediction_test - test_set_y_orig))) * 100
 print("Accuracy of test = {}%".format(accuracy_test))
+
+from Print_Mislabeled_images import print_mislabel_images
+
+print_mislabel_images(classes, test_x, test_set_y_orig, prediction_test)
+plt.show()

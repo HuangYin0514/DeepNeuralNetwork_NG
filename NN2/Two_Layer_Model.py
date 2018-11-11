@@ -54,6 +54,5 @@ def two_layer_model(X, Y, layer_dims, learning_rate=0.0075, num_iterations=3000,
     plt.xlabel("iterations (per tens)")
     plt.ylabel("cost")
     plt.title("Learning rate = " + str(learning_rate))
-    plt.show()
 
     return parameters

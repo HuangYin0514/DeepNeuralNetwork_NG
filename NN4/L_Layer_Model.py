@@ -11,14 +11,15 @@ from Compute_Cost import comput_cost
 from Update_Parameters import update_parameters
 import matplotlib.pyplot as plt
 import numpy as np
-
+from dnn_app_utils_v2 import compute_cost as compute_cost_app
+from dnn_app_utils_v2 import initialize_parameters_deep as initialize_parameters_deep_app
 
 def L_layer_model(X, Y, layers_dims, learning_rate=0.0075, num_iterations=3000, print_cost=False):
     costs = []
     parameters = initialize_parameters_deep(layers_dims)
     for i in range(num_iterations):
         AL, caches = L_model_forward(X, parameters)
-        cost = comput_cost(AL, Y)
+        cost = compute_cost_app(AL, Y)
         if print_cost and i % 100 == 0:
             costs.append(cost)
             print("Cost after iterations {}:{}".format(i, cost))
@@ -30,5 +31,6 @@ def L_layer_model(X, Y, layers_dims, learning_rate=0.0075, num_iterations=3000, 
     plt.xlabel("iterations (per tens)")
     plt.ylabel("cost")
     plt.title("Learning rate = {}".format(learning_rate))
+    plt.show()
 
     return parameters
