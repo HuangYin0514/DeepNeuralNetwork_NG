@@ -6,6 +6,9 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import ndimage
+import scipy
+import skimage
 
 plt.rcParams['figure.figsize'] = (5.0, 4.0)  # set default size of plots
 # plt.rcParams['image.interpolation'] = 'nearest'
@@ -81,4 +84,17 @@ print("Accuracy of test = {}%".format(accuracy_test))
 from Print_Mislabeled_images import print_mislabel_images
 
 print_mislabel_images(classes, test_x, test_set_y_orig, prediction_test)
+
+# my pic test
+my_image = "mytest.png"
+my_label_y = [1]
+my_label_y = np.array(my_label_y).reshape(1,1)
+fname = "MyImageSet/" + my_image
+image = np.array(plt.imread(fname))
+my_image = np.array(skimage.transform.resize(image, output_shape=(num_px, num_px, 3))).reshape((num_px * num_px * 3, 1))
+
+my_predicted_image = predict(my_image, my_label_y, parameters)
+print("y = " + str(np.squeeze(my_predicted_image)) + ", your L-layer model predicts a \"" + classes[
+    int(np.squeeze(my_predicted_image)),].decode("utf-8") + "\" picture.")
 plt.show()
+
